@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 import os
+import re
 
 url = 'https://en.wikipedia.org/wiki/Parsing'
 res1 = requests.get(url)
@@ -18,7 +19,7 @@ corpus = []
 
 for html_page in html_pages:
   soup = BeautifulSoup(html_page, 'html.parser')
-  linhas = soup.get_text().split("\n")
+  linhas = re.split('[.!?\n]',soup.get_text())
   corpus.append(linhas)
 
 while True:
