@@ -18,7 +18,7 @@ corpus = []
 
 for html_page in html_pages:
   soup = BeautifulSoup(html_page, 'html.parser')
-  linhas = soup.get_text().split("\n")
+  linhas = soup.get_text().split(".")
   corpus.append(linhas)
 
 while True:
